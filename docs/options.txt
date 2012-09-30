@@ -1,0 +1,65 @@
+NAME
+       Render-O-Matic
+
+SYNOPSIS
+       render-o-matic [OPTION]...
+
+DESCRIPTION
+       Render-O-Matic
+
+       For more information refer to the authors
+
+       List of arguments:
+
+       -h, --help
+              Shows this message
+
+       -i, --info
+              Show device information
+              
+       -l, --load-config
+              Loads configuration file (default: none)
+              
+       -s, --save-config
+              Saves configuration file (default: none)
+              
+       -r, --render-units
+              Configures the render units (default: cpu)
+              For cpu: -r cpu
+              For gpu: -r gpu1
+              For multiple CPUs: -r cpu,cpu,cpu,cpu
+              For multiple GPUs: -r gpu1,gpu2
+
+       -tg, --thread-GPU-number
+              Number of threads (default: 256)
+              For multiple devices -tg 256,320
+
+       -tc, --thread-CPU-number
+              Number of CPU threads (default: 1)
+
+       -tt, --thread-tree
+              Number of threads for the tree generation (default: 1)
+
+       -s, --samples-per-pixel
+              Samples per pixel (default: 10)
+
+       -wi, --width
+              Image width (default: 512)
+
+       -hi, --height
+              Image height (default: 512)
+
+       -wb, --width-bucket
+              Image width (default 128)
+
+       -hb, --height-bucket
+              Image height (default 128)
+
+AUTHOR
+       Written by Jesus Ortiz Sanchez-Lafuente
+
+REPORTING BUGS
+       Report bugs to <jortizsl@gmail.com>
+
+COPYRIGHT
+       This product is not for public distribution

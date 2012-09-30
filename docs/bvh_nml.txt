@@ -1,0 +1,142 @@
+Description:
+	Render-O-Matic NML Scene file definition
+Version:
+	0.5
+Date:
+	9 May 2011
+Author:
+	Jesús Ortiz Sánchez-Lafuente
+	jortizsl@gmail.com
+	
+-------------------------------------------
+
+include				[file]			File name to include
+
+global
+	sky				[color-*]		Sky color
+	
+texture
+	name			[string]		Name
+	img				[file]			File containing the image
+	wrap-t			['repeat',		Wrap mode in s direction
+					 'mirror',
+					 'clamp']
+	wrap-s			['repeat',		Wrap mode in t direction
+					 'mirror',
+					 'clamp'
+
+shader-texture
+	name			[string]		Name
+	shader			[string]		Shader name
+	param			[string]		Param name
+					[value]			Param value
+
+shader-mask
+	name			[string]		Name
+	shader			[string]		Shader name
+	param			[string]		Param name
+					[value]			Param value
+
+material
+	name			[string]		Name
+	shader			[string]		Shader name
+	param			[string]		Param name
+					[value]			Param value
+
+camera
+	name			[string]		Name
+	shader			[string]		Camera shader name
+	jitter			[string]		Jitter shader name
+	param-shader	[string]		Param name
+					[value]			Param value
+	param-jitter	[string]		Param name
+					[value]			Param value
+
+light
+	name			[string]		Name
+	shader			[string]		Shader name
+	emitter-shader	[string]		Emitter shader name
+	emitter-object	[string]		Emitter object name
+	param-shader	[string]		Param name
+					[value]			Param value
+	param-emitter	[string]		Param name
+					[value]			Param value
+
+object
+	name			[string]		Name
+	mesh			[file]			File containing the mesh
+	shader			[string]		Vertex shader
+	param			[string]		Param name
+					[value]			Param value
+	material-ref	[string]		Name of the referenced material
+	material-src	[file]			File with the material definition
+	material		{}				Inline material definition
+	
+transform
+	translate		[vector]		Translation
+	rotate			[euler*,		Rotation
+					 matrix,
+					 quat,
+					 angle-axis]
+	scale			[float,			Scale
+					 vector]
+	lookat-obj		[vector]		Objective
+					[vector]		Up vector
+	lookat-dir		[vector]		Direction
+					[vector]		Up vector
+	object-ref		[string]		Name of the referenced object
+	object-src		[file]			File with the object definition
+	object			{}				Inline object definition
+	light-ref		[string]		Name of the referenced light
+	light-src		[file]			File with the light definition
+	light			{}				Inline light definition
+	camera-ref		[string]		Name of the referenced camera
+	camera-src		[file]			File with the camera definition
+	camera			{}				Inline camera definition
+	transform		{}				Nested transform
+	
+-------------------------------------------
+
+To define a file:	
+	file('')			String
+	file("")			String
+	
+To define shader params:
+	material()			String
+	texture()			String
+	shader-texture()	String
+	shader-mask()		String
+	color-intensity()	1 float value
+	color-rgb()			3 float values
+	color-temp()		2 float values (Temperature -K-, intensity)
+	color-spectrum()	N values, Nx2 float values (frequency, intensity)
+	int()				1 integer value
+	ivec2()				2 integer values
+	ivec3()				3 integer values
+	ivec4()				4 integer values
+	float()				1 float value
+	vec2()				2 float values
+	vec3()				3 float values
+	vec4()				4 float values
+	mat2()				4 float values
+	mat2x2()			4 float values
+	mat2x3()			6 float values
+	mat2x4()			8 float values
+	mat3x2()			6 float values
+	mat3()				9 float values
+	mat3x3()			9 float values
+	mat3x4()			12 float values
+	mat4x2()			8 float values
+	mat4x3()			12 float values
+	mat4()				16 float values
+	mat4x4()			16 float values
+	
+To define transformations:
+	eulerxyz(), eulerxzy(),
+	euleryxz(), euleryzx(),
+	eulerzxy(), eulerzyx()		Three angles
+	matrix()			3x3 matrix (column major)
+	quat()				4 values
+	angle-axis()		angle, vector(3 values)
+	vector()			3 values
+	float()				1 value (for scale)
